@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/17 22:33:21 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:44:40 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_printf(char *format, ...)
 				i += ft_putnbr(va_arg(ap, int));
 			else if (*format && *format == 'c')
 				i += ft_putchar((char)va_arg(ap, int));
-			else if (*format && *format == 's')
+			else if (*format && (*format == 's' || *format == 'd'))
 			   i += ft_putstr(va_arg(ap, char*));
 			else if (*format && *format == '%')
 				i += ft_putchar(*format);

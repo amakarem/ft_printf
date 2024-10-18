@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 21:15:56 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/18 22:09:34 by aelaaser         ###   ########.fr       */
+/*   Created: 2024/10/18 21:14:16 by aelaaser          #+#    #+#             */
+/*   Updated: 2024/10/18 21:15:09 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
-	if (!s)
-		return (ft_putstr("(null)"));
 	i = 0;
-	while (s[i] && s[i] != '\0')
-	{
-		ft_putchar(s[i]);
+	while (str[i] != '\0')
 		i++;
-	}
 	return (i);
 }

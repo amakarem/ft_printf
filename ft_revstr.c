@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_revstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 21:15:56 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/18 22:09:34 by aelaaser         ###   ########.fr       */
+/*   Created: 2024/10/18 21:10:51 by aelaaser          #+#    #+#             */
+/*   Updated: 2024/10/18 21:19:04 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(const char *s)
+char	*ft_revstr(char *s)
 {
-	int	i;
+	char	*tmp;
+	int		len;
+	int		i;
 
-	if (!s)
-		return (ft_putstr("(null)"));
+	len = ft_strlen(s) - 1 ;
+	tmp = malloc(sizeof(char) * (len + 2));
+	if (tmp == NULL)
+		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != '\0')
+	while (len >= 0)
 	{
-		ft_putchar(s[i]);
+		tmp[i] = s[len];
+		len--;
 		i++;
 	}
-	return (i);
+	tmp[i] = '\0';
+	return (tmp);
 }

@@ -6,7 +6,7 @@
 #    By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/17 23:01:14 by aelaaser          #+#    #+#              #
-#    Updated: 2024/10/17 23:02:18 by aelaaser         ###   ########.fr        #
+#    Updated: 2024/10/18 21:55:57 by aelaaser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 # Source files
-SRCS = 	ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c
+SRCS = 	ft_memaddress.c ft_nbrtohexadecimal.c ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putunsignednbr.c ft_revstr.c ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
 
 # Library name
-NAME = libft.a
+NAME = libftprintf.a
 
 # Default target
 all: $(NAME)

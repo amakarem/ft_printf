@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/18 19:50:57 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/18 21:50:29 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	ft_printf(char *format, ...)
 				i += ft_putunsignednbr(va_arg(ap, unsigned int));
 			else if (*format && *format == 'c')
 				i += ft_putchar((char)va_arg(ap, int));
+			else if (*format && (*format == 'X' || *format == 'x'))
+				i += ft_nbrtohexadecimal(va_arg(ap, int), *format);
 			else if (*format && *format == 's')
 				i += ft_putstr(va_arg(ap, char *));
 			else if (*format && *format == '%')

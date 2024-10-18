@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:13:29 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/18 21:53:56 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/18 22:36:44 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_nbrtohexadecimal(int n, char format)
 	int		tmp;
 	int		i;
 
-	tmphex = malloc(sizeof(char) * sizeof(n) + 1);
+	tmphex = malloc(sizeof(char) * 9);
 	if (!tmphex)
 		return (0);
 	i = 0;

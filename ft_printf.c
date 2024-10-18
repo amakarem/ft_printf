@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/17 23:04:36 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/18 19:50:57 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 int	ft_printf(char *format, ...)
 {
 	int		i;
-	int		n;
-	va_list ap;
+	va_list	ap;
 
 	i = 0;
 	va_start(ap, format);
@@ -29,10 +28,12 @@ int	ft_printf(char *format, ...)
 			format++;
 			if (*format && (*format == 'i' || *format == 'd'))
 				i += ft_putnbr(va_arg(ap, int));
+			else if (*format && *format == 'u')
+				i += ft_putunsignednbr(va_arg(ap, unsigned int));
 			else if (*format && *format == 'c')
 				i += ft_putchar((char)va_arg(ap, int));
 			else if (*format && *format == 's')
-			   i += ft_putstr(va_arg(ap, char*));
+				i += ft_putstr(va_arg(ap, char *));
 			else if (*format && *format == '%')
 				i += ft_putchar(*format);
 		}

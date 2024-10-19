@@ -6,7 +6,7 @@
 #    By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/17 23:01:14 by aelaaser          #+#    #+#              #
-#    Updated: 2024/10/18 21:55:57 by aelaaser         ###   ########.fr        #
+#    Updated: 2024/10/19 07:31:49 by aelaaser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 # Source files
-SRCS = 	ft_memaddress.c ft_nbrtohexadecimal.c ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putunsignednbr.c ft_revstr.c ft_strlen.c
+SRCS = 	ft_nbrtohexadecimal.c ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putunsignednbr.c ft_revstr.c ft_strlen.c ft_printptr.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,13 +6,13 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:13:29 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 03:34:55 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 07:37:09 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	ft_hexconv(unsigned int n, char format)
+char	ft_hexconv(unsigned int n, char format)
 {
 	if (n >= 0 && n <= 9)
 		return (n + 48);

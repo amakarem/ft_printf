@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:13:29 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 14:17:23 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 14:19:45 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,9 @@ int	ft_nbrtohexadecimal(unsigned int n, char format)
 	}
 	tmphex[i] = '\0';
 	hex = ft_revstr(tmphex);
-	if (!hex)
-	{
-		free(tmphex);
-		return (-1);
-	}
 	free(tmphex);
+	if (!hex)
+		return (-1);
 	i = ft_putstr(hex);
 	free(hex);
 	return (i);

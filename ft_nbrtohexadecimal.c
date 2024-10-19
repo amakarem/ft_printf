@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:13:29 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 07:37:09 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 14:17:23 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	ft_hexconv(unsigned int n, char format)
 		return (n + 55);
 	else if (format == 'x' && n >= 10 && n <= 16)
 		return (n + 87);
-	return (0);
+	return (-1);
 }
 
 int	ft_nbrtohexadecimal(unsigned int n, char format)
@@ -34,7 +34,7 @@ int	ft_nbrtohexadecimal(unsigned int n, char format)
 		return (ft_putchar('0'));
 	tmphex = malloc(sizeof(char) * 9);
 	if (!tmphex)
-		return (0);
+		return (-1);
 	i = 0;
 	while (n > 0)
 	{
@@ -44,6 +44,11 @@ int	ft_nbrtohexadecimal(unsigned int n, char format)
 	}
 	tmphex[i] = '\0';
 	hex = ft_revstr(tmphex);
+	if (!hex)
+	{
+		free(tmphex);
+		return (-1);
+	}
 	free(tmphex);
 	i = ft_putstr(hex);
 	free(hex);

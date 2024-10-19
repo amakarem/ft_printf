@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 04:28:22 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 04:59:51 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,15 @@ int	ft_print_case_int(char format, int n)
 		return (ft_putchar(n));
 	else if (format == 'X' || format == 'x')
 		return (ft_nbrtohexadecimal(n, format));
+	else if (format == 'u')
+		return (ft_putunsignednbr((unsigned int)n));
 	else if (format == '%')
 		return (ft_putchar('%'));
 	return (0);
 }
 
+// alternative
+// int ft_printf(char *format, int count, void *args[])
 int	ft_printf(char *format, ...)
 {
 	int		i;
@@ -39,10 +43,8 @@ int	ft_printf(char *format, ...)
 		else
 		{
 			format++;
-			if (*format && *format != 'u' && *format != 's' && *format != '%')
+			if (*format && *format != 's' && *format != '%')
 				i += ft_print_case_int(*format, va_arg(ap, int));
-			else if (*format && *format == 'u')
-				i += ft_putunsignednbr(va_arg(ap, unsigned int));
 			else if (*format && *format == 's')
 				i += ft_putstr(va_arg(ap, char *));
 			else if (*format == '%')

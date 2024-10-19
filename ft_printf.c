@@ -6,11 +6,24 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/18 21:50:29 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 04:28:22 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_print_case_int(char format, int n)
+{
+	if (format == 'i' || format == 'd')
+		return (ft_putnbr(n));
+	else if (format == 'c')
+		return (ft_putchar(n));
+	else if (format == 'X' || format == 'x')
+		return (ft_nbrtohexadecimal(n, format));
+	else if (format == '%')
+		return (ft_putchar('%'));
+	return (0);
+}
 
 int	ft_printf(char *format, ...)
 {
@@ -26,18 +39,14 @@ int	ft_printf(char *format, ...)
 		else
 		{
 			format++;
-			if (*format && (*format == 'i' || *format == 'd'))
-				i += ft_putnbr(va_arg(ap, int));
+			if (*format && *format != 'u' && *format != 's' && *format != '%')
+				i += ft_print_case_int(*format, va_arg(ap, int));
 			else if (*format && *format == 'u')
 				i += ft_putunsignednbr(va_arg(ap, unsigned int));
-			else if (*format && *format == 'c')
-				i += ft_putchar((char)va_arg(ap, int));
-			else if (*format && (*format == 'X' || *format == 'x'))
-				i += ft_nbrtohexadecimal(va_arg(ap, int), *format);
 			else if (*format && *format == 's')
 				i += ft_putstr(va_arg(ap, char *));
-			else if (*format && *format == '%')
-				i += ft_putchar(*format);
+			else if (*format == '%')
+				i += (ft_putchar('%'));
 		}
 		format++;
 	}

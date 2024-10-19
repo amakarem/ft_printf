@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 15:37:07 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 16:27:16 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ int	ft_print_case_int(char format, void *arg)
 		return (ft_putstr((char *)arg));
 	else if (format == 'p')
 		return (ft_printptr((void *)arg));
-	return (-500);
+	return (-1);
 }
 
 int	ft_printf(char *format, ...)
 {
 	int		i;
+	int		result;
 	va_list	arg;
 
 	i = 0;
@@ -39,15 +40,18 @@ int	ft_printf(char *format, ...)
 	while (*format && i >= 0)
 	{
 		if (*format != '%')
-			i += ft_putchar(*format);
+			result = ft_putchar(*format);
 		else
 		{
 			format++;
 			if (*format == '%')
-				i += (ft_putchar('%'));
+				result = (ft_putchar('%'));
 			else if (*format)
-				i += ft_print_case_int(*format, va_arg(arg, void *));
+				result = ft_print_case_int(*format, va_arg(arg, void *));
 		}
+		if (result < 0)
+			return (-1);
+		i += result;
 		format++;
 	}
 	va_end(arg);

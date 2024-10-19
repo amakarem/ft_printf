@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 04:59:51 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 05:05:35 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int	ft_print_case_int(char format, int n)
 	return (0);
 }
 
-// alternative
-// int ft_printf(char *format, int count, void *args[])
 int	ft_printf(char *format, ...)
 {
 	int		i;

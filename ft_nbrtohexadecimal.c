@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:13:29 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 14:19:45 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:30:25 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 char	ft_hexconv(unsigned int n, char format)
 {
-	if (n >= 0 && n <= 9)
+	if (n <= 9)
 		return (n + 48);
 	else if (format == 'X' && n >= 10 && n <= 16)
 		return (n + 55);
-	else if (format == 'x' && n >= 10 && n <= 16)
+	else
 		return (n + 87);
-	return (-1);
 }
 
 int	ft_nbrtohexadecimal(unsigned int n, char format)

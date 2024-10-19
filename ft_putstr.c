@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:15:56 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/18 22:09:34 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:19:52 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ int	ft_putstr(const char *s)
 	if (!s)
 		return (ft_putstr("(null)"));
 	i = 0;
-	while (s[i] && s[i] != '\0')
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
+	while (*s)
+		i += ft_putchar((int)*s++);
 	return (i);
 }

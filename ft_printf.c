@@ -6,7 +6,7 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:21:57 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/19 13:27:35 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:21:59 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_printf(char *format, ...)
 
 	i = 0;
 	va_start(arg, format);
-	while (*format)
+	while (*format && i >= 0)
 	{
 		if (*format != '%')
 			i += ft_putchar(*format);

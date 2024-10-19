@@ -6,13 +6,13 @@
 /*   By: aelaaser <aelaaser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:13:29 by aelaaser          #+#    #+#             */
-/*   Updated: 2024/10/18 22:36:44 by aelaaser         ###   ########.fr       */
+/*   Updated: 2024/10/19 03:34:55 by aelaaser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	ft_hexconv(int n, char format)
+static char	ft_hexconv(unsigned int n, char format)
 {
 	if (n >= 0 && n <= 9)
 		return (n + 48);
@@ -23,13 +23,15 @@ static char	ft_hexconv(int n, char format)
 	return (0);
 }
 
-int	ft_nbrtohexadecimal(int n, char format)
+int	ft_nbrtohexadecimal(unsigned int n, char format)
 {
-	char	*hex;
-	char	*tmphex;
-	int		tmp;
-	int		i;
+	unsigned int	tmp;
+	char			*hex;
+	char			*tmphex;
+	int				i;
 
+	if (n == 0)
+		return (ft_putchar('0'));
 	tmphex = malloc(sizeof(char) * 9);
 	if (!tmphex)
 		return (0);

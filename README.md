@@ -44,3 +44,4 @@ This project teaches:
    ```bash
    git clone https://github.com/amakarem/ft_printf.git
    cd ft_printf
+   ```
